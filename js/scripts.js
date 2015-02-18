@@ -25,4 +25,22 @@ $(document).ready(function() {
 
     event.preventDefault();
   });
+
+  $("form#transaction").submit(function(event){
+    var deposit = parseFloat($("input#deposit").val());
+    var withdraw = parseFloat($("input#withdraw").val());
+
+    if (!(isNaN(deposit))){
+      account.deposit(deposit);
+    }
+
+    if(!(isNaN(withdraw))){
+      account.withdraw(withdraw);
+    }
+
+    $("form#transaction").trigger("reset");
+    
+    $("#balance").text(account.balance);
+      event.preventDefault();
+  });
 });
