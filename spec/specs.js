@@ -9,4 +9,10 @@ describe("BankAccount", function(){
     test.withdraw(50);
     expect(test.balance).to.eql(-50);
   });
+  it("takes parameters of name and initial deposit when creating account", function(){
+    var test = Object.create(BankAccount);
+    test.initialize("name", 100);
+    expect(test.name).to.eql("name");
+    expect(test.balance).to.eql(100);
+  });
 });
